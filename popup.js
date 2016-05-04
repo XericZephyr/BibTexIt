@@ -49,6 +49,23 @@ function getCurrentTabUrl(callback) {
 document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     // Put the image URL in Google search.
+    var searchAjax = new XMLHttpRequest();
+    searchAjax.onreadystatechange = function () {
+      if (searchAjax.readyState == searchAjax.DONE && searchAjax.status == 200) {
+        var id_regexp = /gs_ocit\(event,'(\w+)'/g;
+        var res = id_regexp.exec(searchAjax.response);
+        if (res && res[1]) {
+          console.log(res[1]);
+        }
+        console.log(res);
+        document.getElementById('output-url').innerHTML = searchAjax.response;
+      }
+    }
+    searchAjax.open(
+      "GET",
+      "https://scholar.google.com/scholar?oi=gsb95&output=gsb&hl=en&q=" + encodeURI(url)
+    );
+    searchAjax.send();
     document.getElementById('output-url').innerHTML = url;
   });
 });
