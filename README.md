@@ -1,6 +1,8 @@
 # BibTex It! 
 
-This extension gets your bibtex citation through your url or your text selection within one-click. 
+BibTex It is a chrome extension that gets your bibtex citation ready through your text selection within one click.  
+
+Web Store Link: https://chrome.google.com/webstore/detail/bibtex-it/hofkoiddldajhihgjbckeffpodeoockc
 
 # Screenshots
 
