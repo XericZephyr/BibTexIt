@@ -19,7 +19,7 @@ bibit.searchForBibTex = function (keyword) {
           if (bibTexAjax.readyState == bibTexAjax.DONE && bibTexAjax.status == 200) {
             var retObj = JSON.parse(bibTexAjax.response);
             if (retObj && retObj.i[0].l == "BibTeX") {
-              var bibTexUrl = "https://scholar.google.com" + retObj.i[0].u;
+              var bibTexUrl = retObj.i[0].u;
               // console.log(bibTexUrl);
               chrome.tabs.create({url : bibTexUrl});
             }
